@@ -2,12 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ReactStars from "react-stars";
-import ListProducts from "../ListProducts";
+
 import { CiTrash } from "react-icons/ci";
 
-function ProductsDash() {
-  const [list, setList] = useState(ListProducts);
-
+function ProductsDash({ list, setList }) {
   const change = (index) => {
     const updated = [...list];
     updated.splice(index, 1);

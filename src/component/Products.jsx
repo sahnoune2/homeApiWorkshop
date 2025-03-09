@@ -2,22 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ReactStars from "react-stars";
-import ListProducts from "./ListProducts";
 
-function Products() {
- 
-
-
-  
-
+function Products({ list }) {
   return (
     <div className="flex gap-20 flex-wrap px-24">
-      {ListProducts.map((product) => (
+      {list.map((product) => (
         <Link to={"/prod/" + product.id}>
-          <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 ">
+          <div className=" transition-transform transform hover:scale-105 hover:shadow-lg max-w-sm bg-white border border-blue-700 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 ">
             <a href="#">
               <img
-                style={{ height: "500px" }}
+                style={{ height: "250px", margin: "0 auto" }}
                 className="rounded-t-lg"
                 src={product.images[0]}
                 alt=""
@@ -26,24 +20,29 @@ function Products() {
             <div className="p-5">
               <a href="#">
                 <h5
-                  style={{ height: "100px", fontSize: "1.2rem" }}
-                  className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+                  style={{ height: "50px", fontSize: "1.2rem" }}
+                  className="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white"
                 >
-                  {product.title}
+                  {product.name}
                 </h5>
               </a>
               <p
-                style={{ overflowY: "auto", height: "200px" }}
+                style={{ overflowY: "auto", height: "100px" }}
                 className="mb-3 font-normal text-gray-700 dark:text-gray-400"
               >
                 {product.description}
               </p>
               <p
-                style={{ overflowY: "auto", height: "200px" }}
-                className="mb-3 font-normal text-gray-700 dark:text-gray-400"
+                style={{
+                  overflowY: "auto",
+                  height: "50px",
+                  fontWeight: "bold",
+                }}
+                className="mb-3 font-normal text-gray-700 dark:text-gray-400 "
               >
                 Price :${product.price}
               </p>
+
               {/* <ReactStars
                 count={10}
                 value={product.rating.rate}

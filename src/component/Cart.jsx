@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
 import { CiTrash } from "react-icons/ci";
 
-export const Cart = ({ cart, count }) => {
+export const Cart = ({ cart, setCart }) => {
   useEffect(() => {
     console.log("Cart component: Received cart:", cart);
   }, [cart]);
 
+  const change = (index) => {
+    const updated = [...cart];
+    updated.splice(index, 1);
+    setCart(updated);
+  };
   return (
     <div style={{ display: "flex", gap: "10%" }}>
       <div style={{ width: "55%", height: "40rem", border: "1px solid red" }}>
@@ -18,7 +23,7 @@ export const Cart = ({ cart, count }) => {
             <th>delete</th>
           </tr>
 
-          {cart.map((product) => (
+          {cart.map((product, index) => (
             <tr>
               <th>
                 <img
@@ -28,13 +33,11 @@ export const Cart = ({ cart, count }) => {
                 />{" "}
               </th>
               <th> {product.name} </th>
-              <th> {count} </th>
-              <th>
-                
-                {product.price*count}
-              </th>
+              <th> {product.quantity} </th>
+              <th>{product.price * product.quantity}</th>
               <th>
                 <CiTrash
+                  onClick={() => change(index)}
                   className="p-2 rounded hover:bg-gray-300 cursor-pointer transition"
                   style={{ fontSize: "2.2rem", margin: "0 auto" }}
                 />
@@ -43,9 +46,10 @@ export const Cart = ({ cart, count }) => {
           ))}
         </table>
       </div>
-      <div
-        style={{ width: "35%", height: "40rem", border: "1px solid green" }}
-      ></div>
+      <div style={{ width: "35%", height: "40rem", border: "1px solid green" }}>
+        total price :{" "}
+        {cart.reduce((acc, el) => acc + el.quantity * el.price, 0)}
+      </div>
     </div>
   );
 };

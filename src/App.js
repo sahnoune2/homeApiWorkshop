@@ -14,10 +14,12 @@ import { Users } from "./component/Users";
 import ProductsDash from "./component/dashboard/ProductsDash";
 import { useEffect, useState } from "react";
 import { Cart } from "./component/Cart";
+import ListProducts from "./component/ListProducts";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [count, setCount] = useState(1);
+
+  const [list, setList] = useState(ListProducts);
   useEffect(() => {
     console.log("App: Cart state updated:", cart);
   }, [cart]);
@@ -31,27 +33,25 @@ function App() {
           <Route path="/" element={<Hero />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/products" element={<Products list={list} />} />
           <Route
             path="/prod/:id"
             element={
-              <SingleProduct
-                cart={cart}
-                setCart={setCart}
-                count={count}
-                setCount={setCount}
-              />
+              <SingleProduct cart={cart} setCart={setCart} list={list} />
             }
           />
           <Route
             path="/cart"
             key={cart.length}
-            element={<Cart cart={cart} count={count} />}
+            element={<Cart cart={cart} setCart={setCart} />}
           />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/admin" element={<Dashboard />}>
-            <Route index element={<ProductsDash />} />
+            <Route
+              index
+              element={<ProductsDash list={list} setList={setList} />}
+            />
 
             <Route path="/admin/users" element={<Users />} />
             <Route path="/admin/login" element={<Login />} />

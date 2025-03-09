@@ -17,6 +17,7 @@ const products = [
     brand: "Apple",
     __v: 0,
     id: 0,
+    quantity: 1,
   },
   {
     _id: {
@@ -29,12 +30,14 @@ const products = [
     price: 1199,
     stock: 40,
     images: [
-      "https://i5.walmartimages.com/seo/Samsung-Galaxy-S23-Ultra-5G-Dual-S918B-512GB-12GB-RAM-GSM-Unlocked-Green_d2290cc8-3f71-479c-b9d7-1ba520897afe.80616f3a06fe5be8483e0662ac4d2c7d.jpeg",
-      "https://example.com/images/galaxys23ultra-back.jpg",
+      "https://www.tunisianet.com.tn/344715-large/smartphone-samsung-galaxy-s23-ultra-5g-12-go-256-go-vert.jpg",
+      "https://m.media-amazon.com/images/I/71IGA2fdntL.jpg",
+      "https://bestphone.tn/wp-content/uploads/2024/12/Samsung20Galaxy20S2320Ultra205G20Creme.png",
     ],
     brand: "Samsung",
     __v: 0,
     id: 1,
+    quantity: 1,
   },
   {
     _id: {
@@ -52,6 +55,7 @@ const products = [
     brand: "Sony",
     __v: 0,
     id: 2,
+    quantity: 1,
   },
   {
     _id: {
@@ -69,6 +73,7 @@ const products = [
     brand: "Apple",
     __v: 0,
     id: 3,
+    quantity: 1,
   },
   {
     _id: {
@@ -86,6 +91,7 @@ const products = [
     brand: "Logitech",
     __v: 0,
     id: 4,
+    quantity: 1,
   },
   {
     _id: {
@@ -103,6 +109,7 @@ const products = [
     brand: "Samsung",
     __v: 0,
     id: 5,
+    quantity: 1,
   },
   {
     _id: {
@@ -119,6 +126,7 @@ const products = [
     brand: "Dell",
     __v: 0,
     id: 6,
+    quantity: 1,
   },
   {
     _id: {
@@ -136,6 +144,7 @@ const products = [
     brand: "Bose",
     __v: 0,
     id: 7,
+    quantity: 1,
   },
   {
     _id: {
@@ -153,6 +162,7 @@ const products = [
     brand: "Apple",
     __v: 0,
     id: 8,
+    quantity: 1,
   },
   {
     _id: {
@@ -170,6 +180,7 @@ const products = [
     brand: "Google",
     __v: 0,
     id: 9,
+    quantity: 1,
   },
 ];
 
