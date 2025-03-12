@@ -1,8 +1,11 @@
 import React from "react";
 import { FaCartArrowDown } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData, useRevalidator } from "react-router-dom";
 
 export const Header = () => {
+  const connectedUser = useLoaderData();
+  const { revalidate } = useRevalidator();
+  console.log(connectedUser);
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -20,12 +23,14 @@ export const Header = () => {
           >
             Ashop
           </Link>
-          <Link
-            to={"/admin"}
-            className="self-center text-[1rem] font-semibold whitespace-nowrap dark:text-white "
-          >
-            Dashboard
-          </Link>
+          {connectedUser?.role === "admin" && (
+            <Link
+              to={"/admin"}
+              className="self-center text-[1rem] font-semibold whitespace-nowrap dark:text-white "
+            >
+              Dashboard
+            </Link>
+          )}
         </div>
         <button
           data-collapse-toggle="navbar-default"
@@ -88,11 +93,32 @@ export const Header = () => {
               </Link>
             </li>
             <li>
+              {connectedUser ? (
+                <Link
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    revalidate();
+                  }}
+                  to={"/login"}
+                  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  log out{" "}
+                </Link>
+              ) : (
+                <Link
+                  to={"/login"}
+                  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  SignUp/SignIn
+                </Link>
+              )}
+            </li>
+            <li>
               <Link
-                to={"/login"}
+                to={"/cards"}
                 className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
-                SignUp/SignIn
+                cards
               </Link>
             </li>
             <li>

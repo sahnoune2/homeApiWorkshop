@@ -1,4 +1,12 @@
-import { Route, Routes } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Outlet,
+  Route,
+  RouterProvider,
+  Routes,
+  useLoaderData,
+  useRevalidator,
+} from "react-router-dom";
 import "./App.css";
 import { Footer } from "./component/Footer";
 import { Header } from "./component/Header";
@@ -15,6 +23,13 @@ import ProductsDash from "./component/dashboard/ProductsDash";
 import { useEffect, useState } from "react";
 import { Cart } from "./component/Cart";
 import ListProducts from "./component/ListProducts";
+import { FormProduct } from "./component/dashboard/FormProduct";
+import axios from "axios";
+import { getCurrent, getOneProduct, getProducts } from "./Api";
+import { ToastContainer } from "react-toastify";
+import Animation from "./component/Animation";
+import { ValidationCode } from "./component/ValidationCode";
+import { ProtectedRoute } from "./component/ProtectedRoute";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -24,45 +39,64 @@ function App() {
     console.log("App: Cart state updated:", cart);
   }, [cart]);
 
-  return (
-    <div>
-      <Header />
-
-      <div style={{ marginTop: "2rem" }}>
-        <Routes>
-          <Route path="/" element={<Hero />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/products" element={<Products list={list} />} />
-          <Route
-            path="/prod/:id"
-            element={
-              <SingleProduct cart={cart} setCart={setCart} list={list} />
-            }
-          />
-          <Route
-            path="/cart"
-            key={cart.length}
-            element={<Cart cart={cart} setCart={setCart} />}
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/admin" element={<Dashboard />}>
-            <Route
-              index
-              element={<ProductsDash list={list} setList={setList} />}
-            />
-
-            <Route path="/admin/users" element={<Users />} />
-            <Route path="/admin/login" element={<Login />} />
-            <Route path="/admin/signup" element={<SignUp />} />
-          </Route>
-        </Routes>
-      </div>
-
-      <Footer />
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          {" "}
+          <Header />{" "}
+          <>
+            {" "}
+            <Outlet />{" "}
+          </>{" "}
+          <Footer /> <ToastContainer position="top-right" />
+        </>
+      ),
+      loader: getCurrent,
+      children: [
+        { path: "/", element: <Hero /> },
+        { path: "/code", element: <ValidationCode /> },
+        { path: "/about", element: <About /> },
+        { path: "/cards", element: <Animation />, loader: getProducts },
+        { path: "contact", element: <Contact /> },
+        { path: "/products", element: <Products />, loader: getProducts },
+        {
+          path: "/prod/:id",
+          element: <SingleProduct />,
+          loader: getOneProduct,
+        },
+        { path: "/cart", element: <Cart /> },
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        { path: "/signup", element: <SignUp /> },
+        {
+          path: "/admin",
+          element: (
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          ),
+          loader: getCurrent,
+          children: [
+            {
+              index: true,
+              element: <ProductsDash cart={cart} setCart={setCart} />,
+              loader: getProducts,
+            },
+            { path: "/admin/users", element: <Users /> },
+            {
+              path: "/admin/form",
+              element: <FormProduct list={list} setList={setList} />,
+            },
+          ],
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={router} />;
 }
 
 export default App;

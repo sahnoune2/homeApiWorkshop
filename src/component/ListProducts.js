@@ -10,7 +10,7 @@ const products = [
     price: 1099,
     stock: 50,
     images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpwxR2plMrWrCqlMvoWvSZpeyp-XRETYC9Vw&s",
+      "https://www.xtremeskins.co.uk/cdn/shop/products/iphone-14-pro-max-black-gloss-skins_4b66e3ee-63b6-45da-a114-9de0ff639641_2048x.jpg?v=1734264797",
       "https://ispaceservices.com/storage/2022/09/14-pro-family.png",
       "https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111846_sp875-sp876-iphone14-pro-promax.png",
     ],
@@ -51,6 +51,8 @@ const products = [
     stock: 30,
     images: [
       "https://images-cdn.ubuy.ae/633ac1a8e22c171ed47edec1-sony-wh-1000xm5-wireless-noise-canceling.jpg",
+      "https://www.sony.com.au/image/29c4c729f735ed3af6b457bd3da8dbd0?fmt=png-alpha&wid=1000",
+      "https://assets.mydeal.com.au/47684/sony-wh-1000xm5-noise-cancelling-wireless-headphones-black-8423668_04.jpg?v=638657355287558884&imgclass=dealpageimage",
     ],
     brand: "Sony",
     __v: 0,
@@ -68,7 +70,9 @@ const products = [
     price: 1299,
     stock: 25,
     images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLI46pMjHRGlMqufszRO1Uiw1nscLXowjRuQ&s",
+      "https://www.xtremeskins.co.uk/cdn/shop/files/macbook-air-13.6-2022-m2-brushed-gold-skins_ff6396e9-beb3-4b35-a595-be5ad759d147_2048x.jpg?v=1734614518",
+      "https://cdn.thewirecutter.com/wp-content/media/2020/12/macbook-2048px-10.jpg?auto=webp&quality=75&width=1024",
+      "https://150826569.v2.pressablecdn.com/wp-content/uploads/2022/08/m2-macbook-air-hero.jpg",
     ],
     brand: "Apple",
     __v: 0,
@@ -86,7 +90,9 @@ const products = [
     price: 99,
     stock: 100,
     images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbk4x6tUYcC9oXLSkohke2FuZk4MR9YNeuKw&s",
+      "https://www.logitech.com/content/dam/logitech/en/products/mice/mx-master-3s/migration-assets-for-delorean-2025/gallery/mx-master-3s-top-view-graphite.png",
+      "https://globaliraq.net/cdn/shop/files/1_f88f49ff-cff0-4aec-bdd3-b0294448437a_2048x.png?v=1702725313",
+      "https://m.media-amazon.com/images/I/41QF3gHGdwL.jpg",
     ],
     brand: "Logitech",
     __v: 0,
@@ -105,6 +111,8 @@ const products = [
     stock: 20,
     images: [
       "https://i5.walmartimages.com/seo/SAMSUNG-32-Class-Curved-4K-UHD-3840-x-2160-60Hz-4ms-Monitor-LU32R590CWNXZA_faae156a-1e1b-440d-9ef7-7fe76cb35660_1.05dcd4091c5b4f6310e9c441ca63991d.jpeg",
+      "https://tv-it.com/storage/shada/folder-1/ls32am700umxzn-14.webp",
+      "https://www.whitcroftit.com.au/cdn/shop/products/ls32a800nmexxy-1.jpg?v=1682340707",
     ],
     brand: "Samsung",
     __v: 0,
@@ -121,7 +129,9 @@ const products = [
     price: 1799,
     stock: 15,
     images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXaTKLN4dLtsmi8ZmHbX1KAxNfJEISlM-Y9A&s",
+      "https://www.01net.com/app/uploads/2012/06/dell-xps-15-1.jpg",
+      "https://m.media-amazon.com/images/I/71-IIlqdB2L._AC_UF894,1000_QL80_.jpg",
+      "https://cdn.fstoppers.com/styles/large-16-9/s3/lead/2020/07/07f541527ba65b0932073a06b51eae51.jpg",
     ],
     brand: "Dell",
     __v: 0,
@@ -139,7 +149,9 @@ const products = [
     price: 329,
     stock: 35,
     images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkCe_k8XxYtTQDYsLrNrLuIWakuYjjJ44SAw&s",
+      "https://m.media-amazon.com/images/I/51qfLURUtpL._AC_UF894,1000_QL80_.jpg",
+      "https://assets.bose.com/content/dam/cloudassets/Bose_DAM/Web/consumer_electronics/global/products/headphones/qc45/product_silo_images/QC45_PDP_Ecom-Gallery-B02.jpg/jcr:content/renditions/cq5dam.web.1920.1920.jpeg",
+      "https://www.mobilestation.co.nz/media/catalog/product/cache/5f3f5c8d65b4e943e98e2bb2bea43d27/1/1/1183_3.jpg",
     ],
     brand: "Bose",
     __v: 0,
@@ -157,7 +169,9 @@ const products = [
     price: 499,
     stock: 60,
     images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDaK2nCNamUagrwQQDCT4j17TC7gEc0xcpew&s",
+      "https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111848_apple-watch-series8.png",
+      "https://www.xtremeskins.co.uk/cdn/shop/products/apple-watch-series-7-template_c535bc38-cc17-4420-bcc7-b21adf770f1b_1500x.jpg?v=1662724791",
+      "https://www.catalystlifestyle.com/cdn/shop/files/20220802AW7i-45mm-NewFrontleft-BlackStrap_8cec469d-cf37-414c-bfb1-005016ff4429.jpg?v=1700046318&width=2048",
     ],
     brand: "Apple",
     __v: 0,
@@ -176,12 +190,15 @@ const products = [
     stock: 45,
     images: [
       "https://m.media-amazon.com/images/I/51f4A6Tr8zL._AC_SR1000,1000_.jpg",
+      "https://qskinz.com/cdn/shop/products/24pinkgold_086422cb-8381-4416-abd3-1198242a78ac.png?v=1668096043",
+      "https://www.trustedreviews.com/wp-content/uploads/sites/54/2022/10/Google-Pixel-7-5-1-1024x768.jpg",
     ],
     brand: "Google",
     __v: 0,
     id: 9,
     quantity: 1,
   },
+  
 ];
 
 export default products;

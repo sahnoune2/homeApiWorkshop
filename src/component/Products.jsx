@@ -1,13 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ReactStars from "react-stars";
 
 function Products({ list }) {
+  const listProducts=useLoaderData()
+  console.log("first log:",listProducts);
   return (
     <div className="flex gap-20 flex-wrap px-24">
-      {list.map((product) => (
-        <Link to={"/prod/" + product.id}>
+      {listProducts.map((product) => (
+        <Link key={product._id} to={"/prod/" + product._id}>
           <div className=" transition-transform transform hover:scale-105 hover:shadow-lg max-w-sm bg-white border border-blue-700 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 ">
             <a href="#">
               <img
@@ -23,7 +25,7 @@ function Products({ list }) {
                   style={{ height: "50px", fontSize: "1.2rem" }}
                   className="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white"
                 >
-                  {product.name}
+                  {product.title}
                 </h5>
               </a>
               <p

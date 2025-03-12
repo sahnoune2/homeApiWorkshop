@@ -1,14 +1,15 @@
 import { GiShoppingCart } from "react-icons/gi";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
-function SingleProduct({ cart, setCart, list }) {
-  const { id } = useParams();
+function SingleProduct({ cart, setCart }) {
+  
+  
   const [count, setCount] = useState(1);
-  const productFound = list.filter((el) => el.id == id);
+  const {productFound,image} = useLoaderData()
   console.log("singleproduct productfound testing:", productFound);
-  const [impagep, setImage] = useState(productFound[0].images[0]);
+  const [impagep, setImage] = useState(image);
 
   const increment = () => {
     setCount(count + 1);
@@ -47,41 +48,39 @@ function SingleProduct({ cart, setCart, list }) {
               display: "flex ",
 
               alignItems: "stretch",
-              border: "1px solid blue",
+              width: "100%",
             }}
           >
-            <div>
+            <div style={{ width: "33%" }}>
               <img
                 // hover:scale-[1.2]
                 className="hover:opacity-55  cursor-pointer transition"
                 style={{
-                  width: "20rem",
-                  border: "1px solid green",
                   height: "100%",
                 }}
-                src={productFound[0].images[0]}
-                onClick={() => setImage(productFound[0].images[0])}
+                src={productFound.images[0]}
+                onClick={() => setImage(productFound.images[0])}
                 alt=""
               />
             </div>
-            <div>
+            <div style={{ width: "33%" }}>
               <img
                 // hover:scale-[1.2]
                 className="hover:opacity-55 cursor-pointer transition "
-                style={{ width: "34rem", height: "100%" }}
-                src={productFound[0].images[1]}
+                style={{ height: "100%" }}
+                src={productFound.images[1]}
                 alt=""
-                onClick={() => setImage(productFound[0].images[1])}
+                onClick={() => setImage(productFound.images[1])}
               />
             </div>
-            <div>
+            <div style={{ width: "33%" }}>
               <img
                 // hover:scale-[1.2]
                 className="hover:opacity-55 cursor-pointer transition "
-                style={{ width: "26rem", height: "100%" }}
-                src={productFound[0].images[2]}
+                style={{ height: "100%" }}
+                src={productFound.images[2]}
                 alt=""
-                onClick={() => setImage(productFound[0].images[2])}
+                onClick={() => setImage(productFound.images[2])}
               />
             </div>
           </div>
@@ -90,19 +89,19 @@ function SingleProduct({ cart, setCart, list }) {
         <div className="p-5 w-[60%] ">
           <a href="#">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white pt-6 h-[6rem]">
-              {productFound[0].name}
+              {productFound.title}
             </h5>
           </a>
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 h-[10rem]">
-            {productFound[0].description}
+            {productFound.description}
           </p>
           <p
             style={{ fontWeight: "bold" }}
             className="mb-3 font-normal text-gray-700 dark:text-gray-400 h-[3rem] text-[1.3rem] "
           >
-            price:${productFound[0].price}
+            price:${productFound.price}
           </p>
-          <div style={{ display: "flex", gap: "0.5rem" }}>
+          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
             <div className="bg-blue-700 rounded-lg w-[7rem] flex justify-around">
               <button
                 onClick={decrement}
@@ -115,7 +114,7 @@ function SingleProduct({ cart, setCart, list }) {
                 -
               </button>
               <button disabled className="bg-blue-800 px-2">
-                {(productFound[0].quantity = count)}
+                {(productFound.quantity = count)}
               </button>
               <button
                 onClick={increment}
@@ -129,13 +128,13 @@ function SingleProduct({ cart, setCart, list }) {
               </button>
             </div>
             <div onClick={pushCart}>
-              <a
+              <button
                 href="#"
                 className="  inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Add to cart
                 <GiShoppingCart className="text-[1.5rem]" />
-              </a>
+              </button>
             </div>
             <Link
               to={"/cart"}
@@ -149,6 +148,33 @@ function SingleProduct({ cart, setCart, list }) {
             >
               return to products page
             </Link>
+            <div style={{ display: "flex", gap: "4rem" }}>
+              <div
+                style={{
+                  border: "1px solid black ",
+                  borderRadius: "50%",
+                  width: "1.5rem",
+                  height: "1.5rem",
+                }}
+                className="hover:opacity-55  cursor-pointer transition"
+              ></div>
+              <div
+                style={{
+                  border: "1px solid black ",
+                  borderRadius: "50%",
+                  width: "1.5rem",
+                }}
+                className="hover:opacity-55  cursor-pointer transition"
+              ></div>
+              <div
+                style={{
+                  border: "1px solid black ",
+                  borderRadius: "50%",
+                  width: "1.5rem",
+                }}
+                className="hover:opacity-55  cursor-pointer transition"
+              ></div>
+            </div>
           </div>
         </div>
       </div>
